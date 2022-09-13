@@ -1,13 +1,17 @@
 ---
+import Layout from "../../layouts/Layout.astro";
 import { getAlbums } from "../../utils/getAlbums";
 
 export async function getStaticPaths() {
   const albums = await getAlbums();
-
+  
   return albums.map((album) => ({
     params: { id: album.id },
     props: { album },
   }));
 }
+
+const { album } = Astro.props;
 ---
 
+<Layout title={album.name}>hello</Layout>

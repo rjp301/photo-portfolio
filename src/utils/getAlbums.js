@@ -27,17 +27,17 @@ async function getPhotos(folder) {
   return names;
 }
 
+async function getAlbum(folder) {
+  const params = await getParams(folder);
+  const album = { ...params };
+
+  album.id = folder;
+  album.photos = await getPhotos(folder);
+  album.cover = album.photos.find((i) => i.includes("~")) || album.photos[0];
+  return album;
+}
+
 export async function getAlbums() {
   const folders = cleanFiles(await fs.readdir(PATH));
-
-  const albums = [];
-  for (let folder of folders) {
-    const params = await getParams(folder);
-    const album = { ...params };
-
-    album.id = folder;
-    album.photos = await getPhotos(folder);
-    album.cover = album.photos.find((i) => i.includes("~")) || album.photos[0];
-  }
-  return albums;
+  return Promise.all(folders.map(getAlbum));
 }
