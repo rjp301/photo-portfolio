@@ -21,7 +21,9 @@ import Footer from "../components/Footer.astro";
   </head>
   <body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
 
     <style>
@@ -43,12 +45,14 @@ import Footer from "../components/Footer.astro";
       html {
         font-family: system-ui, sans-serif;
         font-size: var(--font-size-base);
-        color: var(--color-text);
-        background-color: var(--color-bg);
+        background-color: var(--bg);
+        color: var(--text);
       }
 
-      body {
-        margin: 0;
+      main {
+        padding: 30px;
+        display: flex;
+        justify-content: center;
       }
     </style>
 
