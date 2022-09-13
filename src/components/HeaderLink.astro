@@ -1,0 +1,41 @@
+---
+export interface Props {
+  to: string;
+  text: string;
+}
+
+const { to, text } = Astro.props;
+---
+
+<div>
+  <a href={to}>{text}</a>
+</div>
+
+<style lang="scss">
+  div {
+    color: var(--textSoft);
+
+    & a {
+      text-decoration: inherit;
+      color: inherit;
+      padding-bottom: 2px;
+    }
+
+    background-image: linear-gradient(var(--text), var(--text));
+    background-size: 0% 0.1em;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover,
+    &:focus,
+    &:active,
+    & .active {
+      background-size: 100% 0.1em;
+      color: var(--text);
+    }
+  }
+</style>

@@ -1,0 +1,41 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+---
+
+<nav>
+  <div class="group">
+    <img src="/favicon.png" alt="logo" />
+    <HeaderLink to="albums" text="Portfolio" />
+    <HeaderLink to="about" text="About" />
+  </div>
+  <div class="group"></div>
+</nav>
+
+<style>
+  nav {
+    width: 100%;
+    height: var(--navHeight);
+    padding: 0 40px;
+
+    background-color: var(--bg);
+    box-shadow: var(--boxShadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 100;
+    position: sticky;
+    top: 0;
+  }
+
+  div.group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+  }
+
+  img {
+    height: calc(var(--navHeight) / 1.5);
+  }
+</style>
