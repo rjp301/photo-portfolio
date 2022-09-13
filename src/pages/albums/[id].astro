@@ -1,5 +1,13 @@
 ---
+import { getAlbums } from "../../utils/getAlbums";
+
 export async function getStaticPaths() {
-  
+  const albums = await getAlbums();
+
+  return albums.map((album) => ({
+    params: { id: album.id },
+    props: { album },
+  }));
 }
 ---
+
