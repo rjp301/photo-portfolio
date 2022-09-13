@@ -8,7 +8,7 @@ const { album } = Astro.props;
 
 <div class="container">
   <a href={album.id}>
-    <img src={`/images/${album.cover}`} alt={album.name} />
+    <img src={album.cover} alt={album.name} />
     <div class="info">
       <div class="title">{album.name}</div>
       <div class="view">- view -</div>
