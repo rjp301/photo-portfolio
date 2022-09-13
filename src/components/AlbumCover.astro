@@ -6,7 +6,7 @@ export interface Props {
 const { album } = Astro.props;
 ---
 
-<div class="container">
+<figure>
   <a href={album.id}>
     <img src={album.cover} alt={album.name} />
     <div class="info">
@@ -14,7 +14,7 @@ const { album } = Astro.props;
       <div class="view">- view -</div>
     </div>
   </a>
-</div>
+</figure>
 
 <style lang="scss">
   figure {
