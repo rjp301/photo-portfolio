@@ -1,0 +1,170 @@
+[
+  {
+    "name": "Alberta Foothills",
+    "id": "alberta_foothills",
+    "images": [
+      "Untitled-83.jpg",
+      "Untitled-79.jpg",
+      "Untitled-80.jpg",
+      "Untitled-81.jpg",
+      "Untitled-82.jpg",
+      "Untitled-84.jpg",
+      "Untitled-85.jpg",
+      "Untitled-86.jpg",
+      "Untitled-87.jpg",
+      "Untitled-88.jpg",
+      "Untitled-89.jpg",
+      "Untitled-90.jpg",
+      "Untitled-91.jpg",
+      "Untitled-92.jpg",
+      "Untitled-93.jpg",
+      "Untitled-94.jpg"
+    ],
+    "cover": "Untitled-83.jpg",
+    "description": "Undulating hills ripple away from rugged peaks"
+  },
+  {
+    "name": "Animals",
+    "id": "animals",
+    "images": [
+      "Untitled-69.jpg",
+      "Untitled-68.jpg",
+      "Untitled-70.jpg",
+      "Untitled-71.jpg",
+      "Untitled-72.jpg",
+      "Untitled-73.jpg",
+      "Untitled-74.jpg",
+      "Untitled-75.jpg",
+      "Untitled-76.jpg",
+      "Untitled-77.jpg",
+      "Untitled-78.jpg"
+    ],
+    "cover": "Untitled-69.jpg",
+    "description": "Eyes are the windows to the soul - regardless of species"
+  },
+  {
+    "name": "Beautiful British Columbia",
+    "id": "british_columbia",
+    "images": [
+      "Untitled-104.jpg",
+      "Untitled-095.jpg",
+      "Untitled-096.jpg",
+      "Untitled-097.jpg",
+      "Untitled-098.jpg",
+      "Untitled-099.jpg",
+      "Untitled-100.jpg",
+      "Untitled-101.jpg",
+      "Untitled-102.jpg",
+      "Untitled-103.jpg",
+      "Untitled-105.jpg",
+      "Untitled-106.jpg"
+    ],
+    "cover": "Untitled-097.jpg",
+    "description": "Ancient forests, rugged mountains, and too much beauty to appreciate in one lifetime"
+  },
+  {
+    "name": "Canadian Rockies",
+    "id": "rockies",
+    "images": [
+      "Untitled-133.jpg",
+      "Untitled-134.jpg",
+      "Untitled-135.jpg",
+      "Untitled-136.jpg",
+      "Untitled-137.jpg",
+      "Untitled-138.jpg",
+      "Untitled-139.jpg",
+      "Untitled-140.jpg",
+      "Untitled-141.jpg",
+      "Untitled-142.jpg",
+      "Untitled-143.jpg",
+      "Untitled-144.jpg",
+      "Untitled-145.jpg",
+      "Untitled-146.jpg"
+    ],
+    "cover": "Untitled-138.jpg",
+    "description": "Humbling hunks of rock"
+  },
+  {
+    "name": "Coast of Newfoundland",
+    "id": "newfoundland",
+    "images": [
+      "Untitled-35.jpg",
+      "Untitled-36.jpg",
+      "Untitled-37.jpg",
+      "Untitled-38.jpg",
+      "Untitled-39.jpg",
+      "Untitled-40.jpg",
+      "Untitled-41.jpg",
+      "Untitled-42.jpg",
+      "Untitled-43.jpg",
+      "Untitled-44.jpg",
+      "Untitled-45.jpg"
+    ],
+    "cover": "Untitled-40.jpg",
+    "description": "The hospitality of the people make up for the inhospitability of the landscape"
+  },
+  {
+    "name": "Iceland",
+    "id": "iceland",
+    "images": [
+      "Untitled-17.jpg",
+      "Untitled-18.jpg",
+      "Untitled-19.jpg",
+      "Untitled-20.jpg",
+      "Untitled-21.jpg",
+      "Untitled-22.jpg",
+      "Untitled-23.jpg",
+      "Untitled-24.jpg",
+      "Untitled-25.jpg",
+      "Untitled-26.jpg",
+      "Untitled-27.jpg"
+    ],
+    "cover": "Untitled-17.jpg",
+    "description": "Land of fire and ice"
+  },
+  {
+    "name": "Plains of Saskatchewan",
+    "id": "saskatchewan",
+    "images": [
+      "Untitled-28.jpg",
+      "Untitled-29.jpg",
+      "Untitled-30.jpg",
+      "Untitled-31.jpg",
+      "Untitled-32.jpg",
+      "Untitled-33.jpg",
+      "Untitled-34.jpg"
+    ],
+    "cover": "Untitled-28.jpg",
+    "description": "Oceans of wheat"
+  },
+  {
+    "name": "Portraits",
+    "id": "portraits",
+    "images": [
+      "Untitled-46.jpg",
+      "Untitled-47.jpg",
+      "Untitled-48.jpg",
+      "Untitled-49.jpg",
+      "Untitled-50.jpg",
+      "Untitled-51.jpg",
+      "Untitled-52.jpg",
+      "Untitled-53.jpg",
+      "Untitled-54.jpg",
+      "Untitled-55.jpg",
+      "Untitled-56.jpg",
+      "Untitled-57.jpg",
+      "Untitled-58.jpg",
+      "Untitled-59.jpg",
+      "Untitled-60.jpg",
+      "Untitled-61.jpg",
+      "Untitled-62.jpg",
+      "Untitled-63.jpg",
+      "Untitled-64.jpg",
+      "Untitled-65.jpg",
+      "Untitled-66.jpg",
+      "Untitled-67.jpg"
+    ],
+    "cover": "Untitled-56.jpg",
+    "description": "Trying to capture who a person is, rather than what they look like"
+  }
+]
