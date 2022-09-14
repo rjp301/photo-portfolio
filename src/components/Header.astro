@@ -1,7 +1,7 @@
 ---
 import contacts from "./../data/contact.json";
 
-const {title = "Riley Paul"} = Astro.props
+const { title = "Riley Paul" } = Astro.props;
 ---
 
 <nav>
@@ -9,15 +9,15 @@ const {title = "Riley Paul"} = Astro.props
     <a href="/">
       <img src="/favicon.png" alt="logo" />
     </a>
-    <div class="link-container">
+    <div class="link-container responsive">
       <a href="/portfolio/">Portfolio</a>
     </div>
-    <div class="link-container">
+    <div class="link-container responsive">
       <a href="/about/">About</a>
     </div>
     {
       contacts.map((c) => (
-        <div class="link-container">
+        <div class="link-container responsive">
           <a href={c.link} target="_blank" rel="noopener noreferrer">
             <i class={c.icon} />
           </a>
@@ -25,7 +25,7 @@ const {title = "Riley Paul"} = Astro.props
       ))
     }
   </div>
-  <div class="group">
+  <div class="group right">
     {title}
   </div>
 </nav>
@@ -45,6 +45,16 @@ const {title = "Riley Paul"} = Astro.props
     z-index: 100;
     position: sticky;
     top: 0;
+  }
+
+  .responsive {
+    @media screen and (max-width: 650px) {
+      display: none;
+    }
+  }
+
+  .right {
+    text-align: right;
   }
 
   div.group {
