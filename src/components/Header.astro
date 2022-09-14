@@ -1,6 +1,6 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import contacts from "./../data/contact.json"
+import contacts from "./../data/contact.json";
 ---
 
 <nav>
@@ -12,7 +12,7 @@ import contacts from "./../data/contact.json"
     <HeaderLink to="/about/" text="About" />
   </div>
   <div class="group">
-    {contacts.map(contact => <HeaderLink to={contact.link} icon={contact.icon}/>)}
+    {contacts.map((c) => <HeaderLink to={c.link} icon={c.icon} external />)}
   </div>
 </nav>
 

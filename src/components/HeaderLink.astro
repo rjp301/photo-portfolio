@@ -3,13 +3,19 @@ export interface Props {
   to: string;
   text?: string;
   icon?: string;
+  external?: boolean;
 }
 
-const { to, text, icon } = Astro.props;
+const { to, text, icon, external } = Astro.props;
 ---
 
 <div>
-  <a href={to}>{icon ? <i class={icon} /> : text}</a>
+  <a
+    href={to}
+    target={external ? "_blank" : ""}
+    rel={external ? "noopener noreferrer" : ""}
+    >{icon ? <i class={icon} /> : text}
+  </a>
 </div>
 
 <style lang="scss">
