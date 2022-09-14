@@ -8,5 +8,6 @@
   --text: black;
   --textSoft: #606060;
   --soft: #e8e8e8;
+  --accent: rgb(83, 198, 224);
   --boxShadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
