@@ -1,18 +1,17 @@
 [
   {
-    "name": "Email",
-    "link": "mailto:rileypaul96@gmail.com"
-  },
-  {
-    "name": "Phone",
-    "link": "mailto:rileypaul96@gmail.com"
-  },
-  {
     "name": "Instagram",
-    "link": "mailto:rileypaul96@gmail.com"
+    "link": "mailto:rileypaul96@gmail.com",
+    "icon": "fa-brands fa-instagram"
   },
   {
     "name": "Facebook",
-    "link": "mailto:rileypaul96@gmail.com"
+    "link": "mailto:rileypaul96@gmail.com",
+    "icon": "fa-brands fa-facebook"
+  },
+  {
+    "name": "Email",
+    "link": "mailto:rileypaul96@gmail.com",
+    "icon": "fa-solid fa-at"
   }
 ]

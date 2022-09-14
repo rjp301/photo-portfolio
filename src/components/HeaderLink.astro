@@ -1,24 +1,25 @@
 ---
 export interface Props {
   to: string;
-  text: string;
+  text?: string;
+  icon?: string;
 }
 
-const { to, text } = Astro.props;
+const { to, text, icon } = Astro.props;
 ---
 
 <div>
-  <a href={to}>{text}</a>
+  <a href={to}>{icon ? <i class={icon} /> : text}</a>
 </div>
 
 <style lang="scss">
   div {
     color: var(--textSoft);
+    padding: 3px 0;
 
     & a {
       text-decoration: inherit;
       color: inherit;
-      padding-bottom: 2px;
     }
 
     background-image: linear-gradient(var(--text), var(--text));
