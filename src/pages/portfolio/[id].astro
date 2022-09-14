@@ -16,43 +16,19 @@ const { album } = Astro.props;
 
 <Layout title={album.name}>
   <div class="container">
-    <div class="title">{album.name}</div>
-    <p>{album.description}</p>
-    <div class="wrapper">
-      {
-        album.photos.map((image) => (
-          <div class="image-container">
-            <img src={image} alt="" />
-          </div>
-        ))
-      }
-    </div>
+    {
+      album.photos.map((image) => (
+        <div class="image-container">
+          <img src={image} alt="" />
+        </div>
+      ))
+    }
   </div>
 </Layout>
 
 <style lang="scss">
+
   div.container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  div.title {
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding-bottom: 5px;
-  }
-
-  p {
-    font-size: 0.9rem;
-    font-weight: 200;
-    padding-bottom: var(--pagePadding);
-  }
-
-  div.wrapper {
-    display: grid;
-    grid-auto-flow: row;
-    gap: var(--pagePadding);
-
     overflow-y: auto;
     overscroll-behavior-y: contain;
     scroll-snap-type: y mandatory;

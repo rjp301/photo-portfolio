@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  title: string;
+  title?: string;
 }
 
 const { title } = Astro.props;
@@ -30,10 +30,10 @@ import Footer from "../components/Footer.astro";
     ></script>
 
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{"Riley Paul" + (title ? ` - ${title}` : "")}</title>
   </head>
   <body>
-    <Header />
+    <Header title={title} />
     <main>
       <slot />
     </main>
@@ -41,7 +41,7 @@ import Footer from "../components/Footer.astro";
 
     <style>
       main {
-        padding: 30px;
+        padding: 1em var(--pagePadding);
         display: flex;
         justify-content: center;
       }
@@ -52,6 +52,7 @@ import Footer from "../components/Footer.astro";
         margin: 0;
         box-sizing: border-box;
         font-family: "Montserrat", sans-serif;
+        line-height: 1.5;
       }
 
       h1 {

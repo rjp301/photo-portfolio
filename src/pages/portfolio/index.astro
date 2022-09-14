@@ -1,0 +1,29 @@
+---
+import AlbumCover from "../../components/AlbumCover.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getAlbums } from "../../utils/getAlbums";
+const albums = await getAlbums();
+---
+
+<Layout>
+  <div class="masonry">
+    {albums.map((album) => <AlbumCover album={album} />)}
+  </div>
+</Layout>
+
+<style lang="scss">
+  .masonry {
+    columns: 4;
+    column-gap: var(--gap);
+
+    @media (max-width: 1400px) {
+      columns: 3;
+    }
+    @media (max-width: 900px) {
+      columns: 2;
+    }
+    @media (max-width: 500px) {
+      columns: 1;
+    }
+  }
+</style>

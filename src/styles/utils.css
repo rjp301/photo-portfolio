@@ -1,6 +1,7 @@
 :root {
   --navHeight: 84px;
-  --pagePadding: 30px;
+  --pagePadding: clamp(1rem,5vw,4rem);
+  --gap: clamp(1rem,2vw,2rem);
   --bg: #f9f9f9;
   --bgDarker: #f2f2f2;
   --bgLighter: white;

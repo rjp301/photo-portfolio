@@ -1,6 +1,7 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
 import contacts from "./../data/contact.json";
+
+const {title = "Riley Paul"} = Astro.props
 ---
 
 <nav>
@@ -8,19 +9,32 @@ import contacts from "./../data/contact.json";
     <a href="/">
       <img src="/favicon.png" alt="logo" />
     </a>
-    <HeaderLink to="/albums/" text="Portfolio" />
-    <HeaderLink to="/about/" text="About" />
+    <div class="link-container">
+      <a href="/portfolio/">Portfolio</a>
+    </div>
+    <div class="link-container">
+      <a href="/about/">About</a>
+    </div>
+    {
+      contacts.map((c) => (
+        <div class="link-container">
+          <a href={c.link} target="_blank" rel="noopener noreferrer">
+            <i class={c.icon} />
+          </a>
+        </div>
+      ))
+    }
   </div>
   <div class="group">
-    {contacts.map((c) => <HeaderLink to={c.link} icon={c.icon} external />)}
+    {title}
   </div>
 </nav>
 
-<style>
+<style lang="scss">
   nav {
     width: 100%;
     height: var(--navHeight);
-    padding: 0 40px;
+    padding: 0 var(--pagePadding);
 
     background-color: var(--bg);
     box-shadow: var(--boxShadow);
@@ -37,10 +51,37 @@ import contacts from "./../data/contact.json";
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 20px;
+    gap: var(--gap);
   }
 
   img {
     height: calc(var(--navHeight) / 1.5);
+  }
+
+  div.link-container {
+    color: var(--textSoft);
+    padding: 3px 0;
+
+    & a {
+      text-decoration: inherit;
+      color: inherit;
+    }
+
+    background-image: linear-gradient(var(--text), var(--text));
+    background-size: 0% 0.1em;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover,
+    &:focus,
+    &:active,
+    & .active {
+      background-size: 100% 0.1em;
+      color: var(--text);
+    }
   }
 </style>
