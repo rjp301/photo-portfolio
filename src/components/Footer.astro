@@ -2,8 +2,11 @@
 import data from "./../data/contact.json";
 ---
 
-<div class="container" id="contact">
-  <div class="wrapper">
+<div
+  class="w-full flex flex-wrap items-center justify-center py-8"
+  id="contact"
+>
+  <div class="flex gap-4 text-gray-500 text-xs font-thin">
     {
       data.map((i) => (
         <a href={i.link} target="_blank" rel="noopener noreferrer">
@@ -14,29 +17,3 @@ import data from "./../data/contact.json";
     <a href="none">&copy; {new Date().getFullYear()} Riley Paul</a>
   </div>
 </div>
-
-<style>
-  div.container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-  }
-
-  div.wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  a {
-    text-decoration: inherit;
-    color: inherit;
-    color: var(--textSoft);
-    font-size: small;
-    font-weight: 200;
-  }
-</style>
