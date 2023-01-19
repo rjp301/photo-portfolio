@@ -2,7 +2,7 @@
   export let images = [];
   export let name = "";
 
-  let modalOpen = true;
+  let modalOpen = false;
   let modalIndex = 0;
 
   function openImage(index) {
@@ -16,7 +16,7 @@
 
   function moveRight() {
     modalIndex += 1;
-    if (modalIndex > images.length) modalIndex = 0;
+    if (modalIndex > images.length - 1) modalIndex = 0;
   }
 
   function moveLeft() {
