@@ -49,5 +49,4 @@
       isOpen = false;
     }
   }}
-  on:scroll={() => (isOpen = false)}
 />
