@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Gallery from "../../components/Gallery.svelte";
 import { getAlbums } from "../../utils/getAlbums";
 
 export async function getStaticPaths() {
@@ -15,34 +16,11 @@ const { album } = Astro.props;
 ---
 
 <Layout title={album.name}>
-  <h2 class="text-lg font-bold w-full pb-4">{album.name}</h2>
-  <div class="">
-    {
-      album.photos.map((image) => (
-        <div class="image-container snap-center">
-          <img src={image} alt={`image of ${album.name}`} />
-        </div>
-      ))
-    }
+  <div class="max-w-xl flex flex-col items-center">
+    <h2 class="text-lg font-bold w-full py-4">{album.name}</h2>
+    <Gallery images={album.photos} name={album.name} client:load/>
+    <button class="bg-slate-50 px-4 py-2 rounded text-slate-600 m-4">
+      <a href="/">Return to Portfolio</a>
+    </button>
   </div>
-  <button class="bg-slate-50 px-4 py-2 rounded text-slate-600 m-4">
-    <a href="/">Return to Portfolio</a>
-  </button>
 </Layout>
-
-<style lang="scss">
-  div.image-container {
-    scroll-snap-align: start;
-    height: calc(100vh - var(--navHeight) - var(--pagePadding));
-
-    & img {
-      width: 100%;
-      height: 100%;
-
-      align-self: center;
-      object-fit: contain;
-      max-width: 100%;
-      /* box-shadow: ${({ theme }) => theme.boxShadow}; */
-    }
-  }
-</style>

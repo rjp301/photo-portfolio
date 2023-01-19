@@ -47,7 +47,6 @@
 
 <svelte:window
   on:keydown={(e) => {
-    console.log("key = ", e.key);
     if (e.key == "Escape") {
       isOpen = false;
     }
