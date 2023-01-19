@@ -36,7 +36,7 @@
 {#if modalOpen}
   <button
     id="lightbox"
-    class="fixed top-0 right-0 left-0 bottom-0 z-50 bg-slate-600/70 flex items-center justify-center"
+    class="fixed top-0 right-0 left-0 bottom-0 z-50 bg-gray-600/90 flex items-center justify-center"
     on:click|stopPropagation={closeModal}
     on:keypress={(e) => {
       if (e.key == "Enter") {

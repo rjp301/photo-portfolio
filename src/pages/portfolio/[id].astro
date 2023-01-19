@@ -17,7 +17,7 @@ const { album } = Astro.props;
 
 <Layout title={album.name}>
   <div class="max-w-xl flex flex-col items-center">
-    <h2 class="text-lg font-bold w-full py-4">{album.name}</h2>
+    <h2 class="text-lg font-bold w-full p-4">{album.name}</h2>
     <Gallery images={album.photos} name={album.name} client:load/>
     <button class="bg-slate-50 px-4 py-2 rounded text-slate-600 m-4">
       <a href="/">Return to Portfolio</a>
