@@ -5,25 +5,8 @@ import { getAlbums } from "../../utils/getAlbums";
 const albums = await getAlbums();
 ---
 
-<Layout>
-  <div class="masonry">
+<Layout title="Portfolio">
+  <div class="columns-xs gap-4">
     {albums.map((album) => <AlbumCover album={album} />)}
   </div>
 </Layout>
-
-<style lang="scss">
-  .masonry {
-    columns: 4;
-    column-gap: var(--gap);
-
-    @media screen and (max-width: 1400px) {
-      columns: 3;
-    }
-    @media screen and (max-width: 900px) {
-      columns: 2;
-    }
-    @media screen and (max-width: 500px) {
-      columns: 1;
-    }
-  }
-</style>

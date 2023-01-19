@@ -6,7 +6,7 @@ export interface Props {
 const { album } = Astro.props;
 ---
 
-<figure class="bg-gray-50 shadow-lg relative inline-block">
+<figure class="bg-gray-50 shadow-lg relative inline-block mb-3">
   <a href={album.id}>
     <img class="block h-auto" src={album.cover} alt={album.name} />
     <div class="flex flex-col items-center justify-center font-thin absolute top-0 left-0 h-full w-full bg-slate-900/50 text-slate-50 hover:opacity-100 opacity-0 transition-opacity">
