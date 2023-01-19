@@ -4,78 +4,38 @@ import contacts from "./../data/contact.json";
 const { title = "Riley Paul" } = Astro.props;
 ---
 
-<nav>
-  <div class="group">
-    <a href="/">
-      <img src="/favicon.png" alt="logo" />
+<nav class="w-full bg-red-500 shadow-lg top-0 z-50 sticky">
+  <div class="flex items-center justify-between p-4">
+    <a id="logo" href="/">
+      <img class="h-12" src="/favicon.png" alt="logo" />
     </a>
-    <div class="link-container responsive">
-      <a href="/portfolio/">Portfolio</a>
-    </div>
-    <div class="link-container responsive">
-      <a href="/about/">About</a>
-    </div>
-    {
-      contacts.map((c) => (
-        <div class="link-container responsive">
-          <a href={c.link} target="_blank" rel="noopener noreferrer">
-            <i class={c.icon} />
-          </a>
-        </div>
-      ))
-    }
+    <i class="fa-solid fa-bars text-lg px-4"></i>
   </div>
-  <div class="group right">
-    {title}
-  </div>
+
+  <ul
+    id="header-links"
+    class="flex flex-col items-center gap-4 py-4 text-gray-600 bg-gray-400"
+  >
+    <li class="link-container"><a href="/portfolio/">Portfolio</a></li>
+    <li class="link-container"><a href="/about/">About</a></li>
+    <div id="social" class="flex gap-6">
+      {
+        contacts.map((c) => (
+          <li class="link-container">
+            <a href={c.link} target="_blank" rel="noopener noreferrer">
+              <i class={c.icon} />
+            </a>
+          </li>
+        ))
+      }
+    </div>
+  </ul>
+  <!-- <span id="page-title">{title}</span> -->
 </nav>
 
 <style lang="scss">
-  nav {
-    width: 100%;
-    height: var(--navHeight);
-    padding: 0 var(--pagePadding);
-
-    background-color: var(--bg);
-    box-shadow: var(--boxShadow);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    z-index: 100;
-    position: sticky;
-    top: 0;
-  }
-
-  .responsive {
-    @media screen and (max-width: 650px) {
-      display: none;
-    }
-  }
-
-  .right {
-    text-align: right;
-  }
-
-  div.group {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--gap);
-  }
-
-  img {
-    height: calc(var(--navHeight) / 1.5);
-  }
-
   div.link-container {
-    color: var(--textSoft);
     padding: 3px 0;
-
-    & a {
-      text-decoration: inherit;
-      color: inherit;
-    }
 
     background-image: linear-gradient(var(--text), var(--text));
     background-size: 0% 0.1em;
