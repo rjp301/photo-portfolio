@@ -1,10 +1,13 @@
 <script>
   import contacts from "./../data/contact.json";
+  // import { getAlbums } from "../utils/getAlbums";
+
+  // const albums = await getAlbums()
   let isOpen = false;
 </script>
 
 <nav
-  class="w-full bg-gray-50 shadow-lg top-0 z-50 px-4 md:px-8 sticky sm:flex sm:justify-between sm:items-center"
+  class="w-full bg-gray-50 shadow-lg top-0 z-50 px-4 md:px-8 sticky md:flex md:justify-between md:items-center"
 >
   <div class="flex items-center z-40 justify-between">
     <a id="logo" href="/" class="flex items-center gap-2 py-4">
@@ -13,7 +16,7 @@
     </a>
     <button
       id="nav-toggle-button"
-      class="h-12 focus:outline-none flex items-center justify-center sm:hidden"
+      class="h-12 focus:outline-none flex items-center justify-center md:hidden"
       on:click={() => (isOpen = !isOpen)}
     >
       <i class="fa-solid text-lg px-4 {isOpen ? 'fa-x' : 'fa-bars'}" />
@@ -22,7 +25,7 @@
 
   <ul
     id="header-links"
-    class="flex-col gap-4 py-4 sm:flex sm:flex-row items-center text-gray-600 {isOpen
+    class="flex-col gap-4 py-4 md:flex md:flex-row items-center text-gray-600 {isOpen
       ? 'flex'
       : 'hidden'}"
   >

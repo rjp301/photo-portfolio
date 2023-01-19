@@ -15,13 +15,19 @@ const { album } = Astro.props;
 ---
 
 <Layout title={album.name}>
-  {
-    album.photos.map((image) => (
-      <div class="image-container">
-        <img src={image} alt={`image of ${album.name}`} />
-      </div>
-    ))
-  }
+  <h2 class="text-lg font-bold w-full pb-4">{album.name}</h2>
+  <div class="">
+    {
+      album.photos.map((image) => (
+        <div class="image-container snap-center">
+          <img src={image} alt={`image of ${album.name}`} />
+        </div>
+      ))
+    }
+  </div>
+  <button class="bg-slate-50 px-4 py-2 rounded text-slate-600 m-4">
+    <a href="/">Return to Portfolio</a>
+  </button>
 </Layout>
 
 <style lang="scss">
@@ -37,7 +43,6 @@ const { album } = Astro.props;
       object-fit: contain;
       max-width: 100%;
       /* box-shadow: ${({ theme }) => theme.boxShadow}; */
-      z-index: 1;
     }
   }
 </style>
