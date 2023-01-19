@@ -6,7 +6,7 @@ export interface Props {
 const { title } = Astro.props;
 
 import "./../styles/utils.css";
-import Header from "../components/Header.astro";
+import Header from "../components/Header.svelte";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -33,32 +33,10 @@ import Footer from "../components/Footer.astro";
     <title>{"Riley Paul" + (title ? ` - ${title}` : "")}</title>
   </head>
   <body>
-    <Header title={title} />
+    <Header client:load/>
     <main class="p-4">
       <slot />
     </main>
     <Footer />
-
-    <style is:global>
-      * {
-        margin: 0;
-        box-sizing: border-box;
-        font-family: "Montserrat", sans-serif;
-        line-height: 1.5;
-      }
-
-      h1 {
-        font-size: var(--font-size-xl);
-      }
-
-      h2 {
-        font-size: var(--font-size-lg);
-      }
-
-      code {
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-      }
-    </style>
   </body>
 </html>
