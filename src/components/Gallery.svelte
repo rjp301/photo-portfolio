@@ -80,8 +80,21 @@
 
 <svelte:window
   on:keydown={(e) => {
-    if (e.key == "Escape") {
-      modalOpen = false;
+    switch (e.key) {
+      case "Escape":
+        closeModal();
+        break;
+
+      case "ArrowRight":
+        moveRight();
+        break;
+
+      case "ArrowLeft":
+        moveLeft();
+        break;
+        
+      default:
+        console.log(e.key);
     }
   }}
 />
