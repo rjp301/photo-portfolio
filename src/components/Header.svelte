@@ -29,7 +29,7 @@
       ? 'flex'
       : 'hidden'}"
   >
-    <li class="link-container"><a href="/portfolio/">Portfolio</a></li>
+    <li class="link-container"><a href="/">Portfolio</a></li>
     <li class="link-container"><a href="/about/">About</a></li>
     <div id="social" class="flex gap-4">
       {#each contacts as c (c.name)}

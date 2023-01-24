@@ -1,17 +1,12 @@
 ---
+import AlbumCover from "../components/AlbumCover.astro";
 import Layout from "../layouts/Layout.astro";
+import { getAlbums } from "../utils/getAlbums";
+const albums = await getAlbums();
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="refresh" content="0; url=/portfolio/">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
-</html>
+<Layout title="Portfolio">
+  <div class="columns-xs gap-4">
+    {albums.map((album) => <AlbumCover album={album} />)}
+  </div>
+</Layout>
