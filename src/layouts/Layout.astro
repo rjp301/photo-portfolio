@@ -6,7 +6,7 @@ export interface Props {
 const { title } = Astro.props;
 
 import "./../styles/utils.css";
-import Header from "../components/Header.svelte";
+import Navbar from "../components/Navbar.svelte";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -33,7 +33,7 @@ import Footer from "../components/Footer.astro";
     <title>{"Riley Paul" + (title ? ` - ${title}` : "")}</title>
   </head>
   <body>
-    <Header client:load />
+    <Navbar client:load />
     <main class="flex items-center flex-col">
       <slot />
     </main>

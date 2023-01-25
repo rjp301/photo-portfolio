@@ -1,5 +1,5 @@
 <script>
-  import contacts from "./../data/contact.json";
+  import contacts from "../data/contact.json";
   // import { getAlbums } from "../utils/getAlbums";
 
   // const albums = await getAlbums()
