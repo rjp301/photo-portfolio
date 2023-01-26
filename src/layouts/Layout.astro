@@ -32,7 +32,7 @@ import Footer from "../components/Footer.astro";
     <meta name="generator" content={Astro.generator} />
     <title>{"Riley Paul" + (title ? ` - ${title}` : "")}</title>
   </head>
-  <body>
+  <body class="min-h-screen flex flex-col">
     <Navbar client:load />
     <main class="flex items-center flex-col p-4">
       <slot />

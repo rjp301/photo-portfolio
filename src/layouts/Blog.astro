@@ -1,6 +1,7 @@
 ---
 import Layout from "./Layout.astro";
-import Markdown from "./Markdown.astro";
+
+import formatDate from "../utils/formatDate";
 
 interface props {
   title: string;
@@ -13,8 +14,8 @@ const { title, date, cover } = Astro.props.frontmatter;
 
 <Layout title={title}>
   <div class="prose">
-    <h1>{title}</h1>
-    <span>{date}</span>
+    <h1 class="mb-0">{title}</h1>
+    <span>{formatDate(date)}</span>
     <slot />
   </div>
 </Layout>
