@@ -1,0 +1,20 @@
+---
+import Layout from "./Layout.astro";
+import Markdown from "./Markdown.astro";
+
+interface props {
+  title: string;
+  date: Date;
+  cover: string;
+}
+
+const { title, date, cover } = Astro.props.frontmatter;
+---
+
+<Layout title={title}>
+  <div class="prose">
+    <h1>{title}</h1>
+    <span>{date}</span>
+    <slot />
+  </div>
+</Layout>
