@@ -1,0 +1,25 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Gallery from "../../components/Gallery.svelte";
+import Button from "../../components/Button.astro";
+import { getAlbums } from "../../utils/getAlbums";
+
+export async function getStaticPaths() {
+  const albums = await getAlbums();
+
+  return albums.map((album) => ({
+    params: { id: album.id },
+    props: { album },
+  }));
+}
+
+const { album } = Astro.props;
+---
+
+<Layout title={album.name}>
+  <div class="max-w-xl flex flex-col items-center">
+    <h2 class="text-lg font-bold w-full pb-4">{album.name}</h2>
+    <Gallery images={album.photos} name={album.name} client:load />
+    <Button text="Return to Portolfio" link="/" />
+  </div>
+</Layout>

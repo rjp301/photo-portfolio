@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import formatDate from "../../utils/formatDate";
+const blogs = await Astro.glob("./*.md");
+---
+
+<Layout title="Blog">
+  <div class="flex flex-col divide-y">
+    {
+      blogs
+        .filter((blog) => !blog.frontmatter.draft)
+        .map((blog) => (
+          <div class="py-2">
+            <a href={blog.url} class="flex gap-2">
+              <img
+                class="h-24"
+                src={blog.frontmatter.cover}
+                alt="cover photo"
+              />
+              <div class="flex flex-col">
+                <h2>{blog.frontmatter.title}</h2>
+                <p class="text-sm italic">
+                  {formatDate(blog.frontmatter.date)}
+                </p>
+              </div>
+            </a>
+          </div>
+        ))
+    }
+  </div>
+</Layout>

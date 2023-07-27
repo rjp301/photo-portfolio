@@ -1,0 +1,21 @@
+---
+import { contact } from "@/lib/config";
+---
+
+<div
+  class="w-full flex flex-col gap-2 flex-wrap items-center justify-center py-8 mt-auto text-gray-500 text-xs font-thin"
+  id="contact"
+>
+  <div class="flex gap-4">
+    {
+      contact.map((i) => (
+        <a href={i.link} target="_blank" rel="noopener noreferrer">
+          {i.name}
+        </a>
+      ))
+    }
+  </div>
+  <div class="opacity-70 text-xs">
+    &copy; {new Date().getFullYear()} Riley Paul
+  </div>
+</div>
