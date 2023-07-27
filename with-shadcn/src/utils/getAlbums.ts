@@ -8,7 +8,7 @@ type Params = {
   description: string;
 };
 
-type Album = Params & {
+export type Album = Params & {
   id: string;
   photos: string[];
   cover: string;

@@ -5,16 +5,16 @@ export const contact = [
   {
     name: "Instagram",
     link: "https://www.instagram.com/riley_was_there",
-    icon: Instagram,
+    icon: "fa-brands fa-instagram",
   },
   {
     name: "Facebook",
     link: "https://www.facebook.com/rileypaulphoto",
-    icon: Facebook,
+    icon: "fa-brands fa-facebook",
   },
   {
     name: "Email",
     link: "mailto:rileypaul96@gmail.com",
-    icon: AtSign,
+    icon: "fa-solid fa-at",
   },
 ];

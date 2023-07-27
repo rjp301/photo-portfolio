@@ -38,27 +38,27 @@ export default function Navbar() {
           isOpen ? "flex" : "hidden"
         }`}
       >
-        <li className="link-container">
+        <li>
           <a href="/">
             <Button variant="link">Portfolio</Button>
           </a>
         </li>
-        <li className="link-container">
+        <li>
           <a href="/blog/">
             <Button variant="link">Blog</Button>
           </a>
         </li>
-        <li className="link-container">
+        <li>
           <a href="/about/">
             <Button variant="link">About</Button>
           </a>
         </li>
         <div id="social" className="flex gap-2">
           {contact.map((c) => (
-            <li className="link-container">
+            <li key={c.link}>
               <a href={c.link} target="_blank" rel="noopener noreferrer">
                 <Button variant="link" size="icon">
-                  <c.icon className="h-4 w-4" />
+                  <i className={`${c.icon}`} />
                 </Button>
               </a>
             </li>
@@ -66,7 +66,7 @@ export default function Navbar() {
         </div>
       </ul>
 
-      {/* <!-- <span id="page-title">{title}</span> --> */}
+      {/* <span id="page-title">{title}</span> */}
     </nav>
   );
 }
