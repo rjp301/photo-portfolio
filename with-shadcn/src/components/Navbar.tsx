@@ -22,8 +22,8 @@ export default function Navbar() {
           Riley Paul
         </a>
         <Button
-          id="nav-toggle-button"
           variant="ghost"
+          className="md:hidden"
           size="icon"
           onClick={() => setIsOpen((prev) => !prev)}
         >

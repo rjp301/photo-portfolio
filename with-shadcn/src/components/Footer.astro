@@ -4,21 +4,21 @@ import { Button } from "./ui/button";
 ---
 
 <div
-  class="w-full flex flex-col gap-2 flex-wrap items-center justify-center py-8 mt-auto text-gray-500 text-xs font-thin"
+  class="w-full flex flex-col gap-2 flex-wrap items-center justify-center py-8 mt-auto"
   id="contact"
 >
   <div>
     {
       contact.map((i) => (
         <a href={i.link} target="_blank" rel="noopener noreferrer">
-          <Button variant="link" size="sm">
+          <Button variant="link" size="sm" className="px-2 text-muted-foreground">
             {i.name}
           </Button>
         </a>
       ))
     }
   </div>
-  <div class="opacity-70 text-xs">
+  <div class="text-muted-foreground opacity-70 text-xs font-thin">
     &copy; {new Date().getFullYear()} Riley Paul
   </div>
 </div>

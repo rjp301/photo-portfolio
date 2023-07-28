@@ -1,4 +1,5 @@
-import { MouseEvent, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
+import { Button } from "./ui/button";
 
 export type Props = {
   images: [];
@@ -45,28 +46,29 @@ export default function Gallery(props: Props) {
   }
 
   function moveRight() {
-    setModalIndex((prev) => (prev = images.length - 1 ? 0 : prev + 1));
+    setModalIndex((prev) => (prev = prev === images.length - 1 ? 0 : prev + 1));
   }
 
   function moveLeft() {
-    setModalIndex((prev) => (prev = 0 ? images.length - 1 : prev - 1));
+    setModalIndex((prev) => (prev = prev === 0 ? images.length - 1 : prev - 1));
   }
 
   return (
     <>
       <div id="gallery" className="flex flex-col gap-4">
         {images.map((image, i) => (
-          <button onClick={() => openImage(i)}>
+          <button key={i} onClick={() => openImage(i)}>
             <img className="" src={image} alt={name} />
           </button>
         ))}
       </div>
 
       {modalOpen && (
-        <button
-          id="lightbox"
+        <div
           className="fixed top-0 right-0 left-0 bottom-0 z-50 bg-gray-600/90 flex items-center justify-center"
-          onClick={stopPrevent}
+          onClick={(e) => {
+            closeModal();
+          }}
         >
           <img
             className="object-contain h-full w-auto"
@@ -77,18 +79,16 @@ export default function Gallery(props: Props) {
           />
 
           <button
-            id="move-right"
             className="fixed right-0 sm:bg-slate-50/30 text-slate-50 h-full sm:h-1/3 sm:w-16 w-32"
             onClick={(e) => {
-              e.stopPropagation();
               moveRight();
+              stopPrevent(e);
             }}
           >
             <i className="fa-solid fa-chevron-right text-lg hidden sm:block" />
           </button>
 
           <button
-            id="move-left"
             className="fixed left-0 sm:bg-slate-50/30 text-slate-50 h-full sm:h-1/3 sm:w-16 w-32"
             onClick={(e) => {
               e.stopPropagation();
@@ -98,17 +98,18 @@ export default function Gallery(props: Props) {
             <i className="fa-solid fa-chevron-left text-lg hidden sm:block" />
           </button>
 
-          <button
-            id="close-modal"
+          <Button
             onClick={(e) => {
-              e.stopPropagation();
+              stopPrevent(e);
               closeModal();
             }}
-            className="fixed top-0 right-0 "
+            variant="ghost"
+            size="icon"
+            className="fixed top-0 right-0 mt-4 mr-4"
           >
-            <i className="fa-solid fa-x m-4 text-slate-50 text-lg" />
-          </button>
-        </button>
+            <i className="fa-solid fa-x text-lg" />
+          </Button>
+        </div>
       )}
     </>
   );
