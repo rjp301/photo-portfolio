@@ -1,8 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Gallery from "../../components/Gallery.tsx";
-import Button from "../../components/Button.astro";
+import Gallery from "../../components/Gallery.jsx";
 import { getAlbums } from "../../utils/getAlbums";
+import { Button } from "@/components/ui/button";
 
 export async function getStaticPaths() {
   const albums = await getAlbums();
@@ -20,6 +20,7 @@ const { album } = Astro.props;
   <div class="max-w-xl flex flex-col items-center">
     <h2 class="text-lg font-bold w-full pb-4">{album.name}</h2>
     <Gallery images={album.photos} name={album.name} client:load />
-    <Button text="Return to Portolfio" link="/" />
+    <br>
+    <a href="/"> <Button variant="secondary">Return to Portfolio</Button></a>
   </div>
 </Layout>

@@ -1,8 +1,7 @@
 ---
 import Layout from "./Layout.astro";
-
+import { Button } from "@/components/ui/button";
 import formatDate from "../utils/formatDate";
-import Button from "../components/Button.astro";
 
 interface props {
   title: string;
@@ -19,5 +18,6 @@ const { title, date, cover } = Astro.props.frontmatter;
     <span>{formatDate(date)}</span>
     <slot />
   </div>
-  <Button text="Return to Blog" link="/blog/" />
+  <br />
+  <a href="/blog"><Button variant="secondary">Return to Blog</Button></a>
 </Layout>

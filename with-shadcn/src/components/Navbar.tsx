@@ -21,43 +21,50 @@ export default function Navbar() {
           <img className="h-12" src="/favicon.png" alt="logo" />
           Riley Paul
         </a>
-        <button
+        <Button
           id="nav-toggle-button"
-          className="h-12 focus:outline-none flex items-center justify-center md:hidden"
+          variant="ghost"
+          size="icon"
           onClick={() => setIsOpen((prev) => !prev)}
         >
           <i
             className={`fa-solid text-lg px-4 ${isOpen ? "fa-x" : "fa-bars"}`}
           />
-        </button>
+        </Button>
       </div>
 
       <ul
         id="header-links"
-        className={`flex-col gap-2 py-4 md:flex md:flex-row items-center text-gray-600 ${
+        className={`flex-col py-4 md:flex md:flex-row items-center text-gray-600 ${
           isOpen ? "flex" : "hidden"
         }`}
       >
         <li>
           <a href="/">
-            <Button variant="link">Portfolio</Button>
+            <Button variant="link" size="lg" className="px-4">
+              Portfolio
+            </Button>
           </a>
         </li>
         <li>
           <a href="/blog/">
-            <Button variant="link">Blog</Button>
+            <Button variant="link" size="lg" className="px-4">
+              Blog
+            </Button>
           </a>
         </li>
         <li>
           <a href="/about/">
-            <Button variant="link">About</Button>
+            <Button variant="link" size="lg" className="px-4">
+              About
+            </Button>
           </a>
         </li>
         <div id="social" className="flex gap-2">
           {contact.map((c) => (
             <li key={c.link}>
               <a href={c.link} target="_blank" rel="noopener noreferrer">
-                <Button variant="link" size="icon">
+                <Button variant="link" size="icon" className="px-4">
                   <i className={`${c.icon}`} />
                 </Button>
               </a>
