@@ -1,8 +1,7 @@
 {
-  "name": "@example/basics",
+  "name": "with-shadcn",
   "type": "module",
   "version": "0.0.1",
-  "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -11,19 +10,23 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.14.0",
-    "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/svelte": "^1.0.2",
-    "@astrojs/tailwind": "^2.1.3",
-    "@types/alpinejs": "^3.7.1",
-    "alpinejs": "^3.11.1",
-    "astro": "^1.2.3",
-    "astro-robots-txt": "^0.3.11",
-    "svelte": "^3.55.1",
-    "tailwindcss": "^3.2.4"
+    "@astrojs/react": "^2.2.1",
+    "@astrojs/tailwind": "^4.0.0",
+    "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@types/react": "^18.2.17",
+    "@types/react-dom": "^18.2.7",
+    "astro": "^2.9.3",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.263.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss": "^3.3.3",
+    "tailwindcss-animate": "^1.0.6"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.9",
-    "sass": "^1.54.9"
+    "@tailwindcss/typography": "^0.5.9"
   }
 }

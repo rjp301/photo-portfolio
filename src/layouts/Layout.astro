@@ -5,16 +5,16 @@ export interface Props {
 
 const { title } = Astro.props;
 
-import "./../styles/utils.css";
-import Navbar from "../components/Navbar.svelte";
-import Footer from "../components/Footer.astro";
+import "@/main.css";
+import Navbar from "@/components/Navbar.jsx";
+import Footer from "@/components/Footer.astro";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <link rel="icon" type="image/png" href="/favicon.svg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,8 +26,7 @@ import Footer from "../components/Footer.astro";
 
     <script
       src="https://kit.fontawesome.com/c961af0e55.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
 
     <meta name="generator" content={Astro.generator} />
     <title>{"Riley Paul" + (title ? ` - ${title}` : "")}</title>
