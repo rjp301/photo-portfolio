@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { contact } from "@/lib/config";
 import { Button } from "./ui/button";
+import { getCollection } from "astro:content";
+
+const contacts = await getCollection("contact")
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,11 +63,11 @@ export default function Navbar() {
           </a>
         </li>
         <div id="social" className="flex gap-2">
-          {contact.map((c) => (
-            <li key={c.link}>
-              <a href={c.link} target="_blank" rel="noopener noreferrer">
+          {contacts.map((c) => (
+            <li key={c.data.link}>
+              <a href={c.data.link} target="_blank" rel="noopener noreferrer">
                 <Button variant="link" size="icon" className="px-4">
-                  <i className={`${c.icon}`} />
+                  <i className={`${c.data.icon}`} />
                 </Button>
               </a>
             </li>
