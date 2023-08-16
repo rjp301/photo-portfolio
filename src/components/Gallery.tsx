@@ -28,6 +28,11 @@ export default function Gallery(props: Props) {
     }
   };
 
+  useEffect(() => {
+    window.addEventListener("keydown", windowKey);
+    return () => window.removeEventListener("keydown", windowKey);
+  }, []);
+
   const [modalOpen, setModalOpen] = useState(false);
   const [modalIndex, setModalIndex] = useState(0);
 
@@ -78,25 +83,27 @@ export default function Gallery(props: Props) {
             onKeyDown={stopPrevent}
           />
 
-          <button
-            className="fixed right-0 sm:bg-slate-50/30 text-slate-50 h-full sm:h-1/3 sm:w-16 w-32"
+          <Button
+            variant="ghost"
+            className="fixed right-0 text-muted hover:bg-muted/30 hover:text-background h-full sm:h-1/3 sm:w-16 w-32 rounded-r-none"
             onClick={(e) => {
               moveRight();
               stopPrevent(e);
             }}
           >
             <i className="fa-solid fa-chevron-right text-lg hidden sm:block" />
-          </button>
+          </Button>
 
-          <button
-            className="fixed left-0 sm:bg-slate-50/30 text-slate-50 h-full sm:h-1/3 sm:w-16 w-32"
+          <Button
+            variant="ghost"
+            className="fixed left-0 text-muted hover:bg-muted/30 hover:text-background h-full sm:h-1/3 sm:w-16 w-32 rounded-l-none"
             onClick={(e) => {
               e.stopPropagation();
               moveLeft();
             }}
           >
             <i className="fa-solid fa-chevron-left text-lg hidden sm:block" />
-          </button>
+          </Button>
 
           <Button
             onClick={(e) => {
@@ -105,7 +112,7 @@ export default function Gallery(props: Props) {
             }}
             variant="ghost"
             size="icon"
-            className="fixed top-0 right-0 mt-4 mr-4"
+            className="text-muted hover:bg-muted/30 hover:text-background fixed top-0 right-0 mt-4 mr-4"
           >
             <i className="fa-solid fa-x text-lg" />
           </Button>
