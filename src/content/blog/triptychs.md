@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/Blog.astro
 title: The Power of Triptychs
 date: 2023-01-26
 cover: /images/triptychs/iceland-printed.jpg

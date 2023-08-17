@@ -1,0 +1,29 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Button } from "@/components/ui/button";
+import formatDate from "@/utils/formatDate";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={entry.data.title}>
+  <div class="prose">
+    <h1 class="mb-0">{entry.data.title}</h1>
+    <span>{formatDate(entry.data.date)}</span>
+    <Content />
+  </div>
+  <br />
+  <a href="/blog">
+    <Button variant="secondary" size="lg">Return to Blog</Button>
+  </a>
+</Layout>
