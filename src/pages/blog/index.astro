@@ -3,6 +3,15 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import formatDate from "../../utils/formatDate";
 const blogs = await getCollection("blog");
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 ---
 
 <Layout title="Blog">
@@ -15,8 +24,8 @@ const blogs = await getCollection("blog");
             <a href={`/blog/${blog.slug}`} class="flex gap-2">
               <img class="h-24" src={blog.data.cover} alt="cover photo" />
               <div class="flex flex-col">
-                <h2>{blog.data.title}</h2>
-                <p class="text-sm italic">{formatDate(blog.data.date)}</p>
+                <CardTitle>{blog.data.title}</CardTitle>
+                <CardDescription>{formatDate(blog.data.date)}</CardDescription>
               </div>
             </a>
           </div>
