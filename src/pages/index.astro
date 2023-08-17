@@ -1,12 +1,12 @@
 ---
-import AlbumCover from "../components/AlbumCover.astro";
-import Layout from "../layouts/Layout.astro";
-import { getAlbums } from "@/utils/getAlbums.js";
-// const albums = await getAlbums();
+import AlbumCover from "@/components/AlbumCover.astro";
+import Layout from "@/layouts/Layout.astro";
+import getAlbums from "@/utils/getAlbums.js";
+const albums = await getAlbums();
 ---
 
 <Layout title="Portfolio">
   <div class="columns-xs gap-4">
-    <!-- {albums.map((album) => <AlbumCover album={album} />)} -->
+    {albums.map((album) => <AlbumCover album={album} />)}
   </div>
 </Layout>

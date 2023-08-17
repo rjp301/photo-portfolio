@@ -1,57 +1,31 @@
-import fs from "node:fs/promises";
-import path from "node:path";
+import { getCollection } from "astro:content";
 
-const PATH = path.join("public", "albums");
-
-type Params = {
-  name: string;
-  description: string;
-};
-
-export type Album = Params & {
-  id: string;
-  photos: string[];
-  cover: string;
-};
-
-function cleanFiles(files: string[]): string[] {
-  const badFiles = [".DS_Store"];
-  return files.filter((i) => badFiles.indexOf(i) === -1);
-}
-
-const filterPhotos = (name: string): boolean =>
-  name.includes(".jpg") || name.includes(".png");
-
-async function getParams(folder: string): Promise<Params> {
-  const fname = path.join(PATH, folder, "params.json");
-  const json = (await fs.readFile(fname)).toString();
-  return JSON.parse(json) as Params;
-}
-
-async function getPhotos(folder: string): Promise<string[]> {
-  const fname = path.join(PATH, folder);
-  let names;
-  names = await fs.readdir(fname);
-  names = names.filter(filterPhotos);
-  names = names.map((name) =>
-    encodeURI(path.join(fname, name)).replace("public", "")
+export default async function getAlbums() {
+  const albumData = await getCollection("albums");
+  const allPhotos = Object.keys(
+    import.meta.glob(`../content/albums/**/*.{jpg,jpeg,png}`)
   );
-  return names;
-}
 
-async function getAlbum(folder: string): Promise<Album> {
-  const params = await getParams(folder);
-  const photos = await getPhotos(folder);
-  const album = {
-    ...params,
-    id: folder,
-    photos: photos,
-    cover: photos.find((i) => i.includes("~")) || photos[0],
-  };
-  return album;
-}
+  const albums = albumData.map((album) => {
+    const slug = album.id.split("/")[0];
 
-export async function getAlbums() {
-  const folders = cleanFiles(await fs.readdir(PATH));
-  return Promise.all(folders.map(getAlbum));
+    const photos = allPhotos
+      .filter((photo) => {
+        const directoryArray = photo.split("/");
+        const directory = directoryArray[directoryArray.length - 2];
+        return slug === directory;
+      })
+      .map((loc) => loc.replace("..", "src"));
+
+    const cover =
+      photos.find((photo) => {
+        const directoryArray = photo.split("/");
+        const filename = directoryArray[directoryArray.length - 1];
+        return filename[0] === "~";
+      }) || photos[0];
+
+    return { ...album, slug, photos, cover };
+  });
+
+  return albums;
 }
