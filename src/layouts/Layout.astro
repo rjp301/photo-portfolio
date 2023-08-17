@@ -14,7 +14,10 @@ import Footer from "../components/Footer.astro";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
     <link rel="icon" type="image/png" href="/favicon.svg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,11 +34,11 @@ import Footer from "../components/Footer.astro";
     <meta name="generator" content={Astro.generator} />
     <title>{"Riley Paul" + (title ? ` - ${title}` : "")}</title>
   </head>
-  <body class="min-h-screen flex flex-col">
-    <Navbar client:load />
-    <main class="flex items-center flex-col p-4">
+  <body class="h-screen flex flex-col overflow-hidden">
+    <Navbar client:load pathname={Astro.url.pathname} />
+    <main class="flex flex-1 items-center flex-col p-4 overflow-auto">
       <slot />
+      <Footer />
     </main>
-    <Footer />
   </body>
 </html>

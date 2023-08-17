@@ -9,6 +9,15 @@ const contactCollection = defineCollection({
   }),
 });
 
+const pageCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    name: z.string(),
+    link: z.string(),
+  }),
+});
+
 export const collections = {
   contact: contactCollection,
+  pages: pageCollection,
 };

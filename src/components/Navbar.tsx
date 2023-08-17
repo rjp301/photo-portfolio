@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { getCollection } from "astro:content";
 
-const contacts = await getCollection("contact")
+const contacts = await getCollection("contact");
+const pages = await getCollection("pages");
 
-export default function Navbar() {
+interface Props {
+  pathname: string;
+}
+
+export default function Navbar({ pathname }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const collapse = (event: KeyboardEvent) => {
@@ -41,33 +46,30 @@ export default function Navbar() {
           isOpen ? "flex" : "hidden"
         }`}
       >
-        <li>
-          <a href="/">
-            <Button variant="link" size="lg" className="px-4">
-              Portfolio
-            </Button>
-          </a>
-        </li>
-        <li>
-          <a href="/blog/">
-            <Button variant="link" size="lg" className="px-4">
-              Blog
-            </Button>
-          </a>
-        </li>
-        <li>
-          <a href="/about/">
-            <Button variant="link" size="lg" className="px-4">
-              About
-            </Button>
-          </a>
-        </li>
+        {pages.map((page) => {
+          const isCurrent =
+            page.data.link === pathname || page.data.link === pathname + "/";
+
+          return (
+            <li>
+              <a href={page.data.link}>
+                <Button
+                  variant="link"
+                  size="lg"
+                  className={`px-4 ${isCurrent ? "underline" : ""}`}
+                >
+                  {page.data.name}
+                </Button>
+              </a>
+            </li>
+          );
+        })}
         <div id="social" className="flex gap-2">
           {contacts.map((c) => (
             <li key={c.data.link}>
               <a href={c.data.link} target="_blank" rel="noopener noreferrer">
                 <Button variant="link" size="icon" className="px-4">
-                  <i className={`${c.data.icon}`} />
+                  <i className={`${c.data.icon} font-normal`} />
                 </Button>
               </a>
             </li>
