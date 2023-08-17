@@ -21,7 +21,7 @@ const blogCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    data: z.date(),
+    date: z.date(),
     cover: z.string(),
     draft: z.boolean().optional(),
   }),
@@ -29,5 +29,6 @@ const blogCollection = defineCollection({
 
 export const collections = {
   contact: contactCollection,
-  pages: pageCollection,
+  headerLinks: pageCollection,
+  blog: blogCollection,
 };

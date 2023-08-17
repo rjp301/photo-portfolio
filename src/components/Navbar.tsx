@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { getCollection } from "astro:content";
 
 const contacts = await getCollection("contact");
-const pages = await getCollection("pages");
+const pages = await getCollection("headerLinks");
 
 interface Props {
   pathname: string;
