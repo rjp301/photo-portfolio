@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 export async function getStaticPaths() {
   const albums = await getAlbums();
   return albums.map((album) => ({
-    params: { slug: album.slug },
+    params: { slug: album.data.slug },
     props: { album },
   }));
 }
