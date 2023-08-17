@@ -51,7 +51,7 @@ export default function Navbar({ pathname }: Props) {
             page.data.link === pathname || page.data.link === pathname + "/";
 
           return (
-            <li>
+            <li key={page.data.name}>
               <a href={page.data.link}>
                 <Button
                   variant="link"

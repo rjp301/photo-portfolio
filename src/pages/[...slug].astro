@@ -1,0 +1,10 @@
+---
+import { getCollection } from "astro:content"
+import Path from "node:path"
+
+export async function getStaticPaths() {
+  const images = await getCollection("albums")
+  console.log(images)
+}
+
+---

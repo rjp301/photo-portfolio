@@ -27,8 +27,17 @@ const blogCollection = defineCollection({
   }),
 });
 
+const albumCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    name: z.string(),
+    description: z.string(),
+  }),
+});
+
 export const collections = {
   contact: contactCollection,
   headerLinks: pageCollection,
   blog: blogCollection,
+  albums: albumCollection,
 };
