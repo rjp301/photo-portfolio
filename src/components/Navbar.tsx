@@ -47,8 +47,7 @@ export default function Navbar({ pathname }: Props) {
         }`}
       >
         {pages.map((page) => {
-          const isCurrent =
-            page.data.link === pathname || page.data.link === pathname + "/";
+          const isCurrent = pathname.startsWith(page.data.link);
 
           return (
             <li key={page.data.name}>
