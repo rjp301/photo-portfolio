@@ -24,7 +24,7 @@ export default function Navbar({ pathname }: Props) {
   return (
     <nav className="w-full bg-gray-50 shadow-lg top-0 z-50 px-4 md:px-8 sticky md:flex md:justify-between md:items-center">
       <div className="flex items-center z-40 justify-between">
-        <a id="logo" href="/" className="flex items-center gap-2 py-4">
+        <a id="logo" href="/portfolio" className="flex items-center gap-2 py-4">
           <img className="h-12" src="/favicon.png" alt="logo" />
           Riley Paul
         </a>
