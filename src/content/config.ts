@@ -19,12 +19,13 @@ const pageCollection = defineCollection({
 
 const blogCollection = defineCollection({
   type: "content",
-  schema: z.object({
-    title: z.string(),
-    date: z.date(),
-    cover: z.string(),
-    draft: z.boolean().optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      date: z.date(),
+      cover: image(),
+      draft: z.boolean().optional(),
+    }),
 });
 
 const albumCollection = defineCollection({

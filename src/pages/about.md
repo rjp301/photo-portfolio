@@ -3,7 +3,7 @@ layout: ../layouts/Markdown.astro
 title: About
 ---
 
-![profile](/profile.jpg)
+![profile](../assets/profile.jpg)
 
 ## About
 

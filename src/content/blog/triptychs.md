@@ -1,7 +1,7 @@
 ---
 title: The Power of Triptychs
 date: 2023-01-26
-cover: /images/triptychs/iceland-printed.jpg
+cover: ./triptychs/iceland-printed.jpg
 ---
 
 > A triptych is an artwork made up of three pieces or panels. Often used to impart narrative, create a sequence, or show different elements of the same subject matter.
@@ -12,12 +12,12 @@ When seeking for some wall art for our new apartment I opted to create a triptyc
 
 <div class="flex flex-row gap-4">
 
-![black sand beach aerial](/images/triptychs/iceland1.jpg)
+![black sand beach aerial](./triptychs/iceland1.jpg)
 
-![black sand beach aerial](/images/triptychs/iceland2.jpg)
+![black sand beach aerial](./triptychs/iceland2.jpg)
 
-![black sand beach aerial](/images/triptychs/iceland3.jpg)
+![black sand beach aerial](./triptychs/iceland3.jpg)
 
 </div>
 
-![three images above couch](/images/triptychs/iceland-printed.jpg)
+![three images above couch](./triptychs/iceland-printed.jpg)

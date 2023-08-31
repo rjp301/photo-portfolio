@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { getCollection } from "astro:content";
+import favicon from "@/assets/favicon.png";
 
 const contacts = await getCollection("contact");
 const pages = await getCollection("headerLinks");
@@ -25,7 +26,7 @@ export default function Navbar({ pathname }: Props) {
     <nav className="w-full bg-gray-50 shadow-lg top-0 z-50 px-4 md:px-8 sticky md:flex md:justify-between md:items-center">
       <div className="flex items-center z-40 justify-between">
         <a id="logo" href="/portfolio" className="flex items-center gap-2 py-4">
-          <img className="h-12" src="/favicon.png" alt="logo" />
+          <img className="h-12" src={favicon.src} alt="logo" />
           Riley Paul
         </a>
         <Button
