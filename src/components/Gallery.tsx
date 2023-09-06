@@ -1,5 +1,6 @@
-import { MouseEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import { Image } from "astro:assets";
 
 export type Props = {
   images: [];
@@ -63,7 +64,7 @@ export default function Gallery(props: Props) {
       <div id="gallery" className="flex flex-col gap-4">
         {images.map((image, i) => (
           <button key={i} onClick={() => openImage(i)}>
-            <img className="" src={image} alt={name} />
+            <img src={image} alt={name} />
           </button>
         ))}
       </div>

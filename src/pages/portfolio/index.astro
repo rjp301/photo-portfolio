@@ -1,8 +1,10 @@
 ---
 import AlbumCover from "@/components/AlbumCover.astro";
 import Layout from "@/layouts/Layout.astro";
-import getAlbums from "@/utils/getAlbums.js";
-const albums = await getAlbums();
+import { getCollection } from "astro:content";
+
+const albums = await getCollection("albums")
+
 ---
 
 <Layout title="Portfolio">

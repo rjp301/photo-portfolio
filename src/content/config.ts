@@ -30,11 +30,12 @@ const blogCollection = defineCollection({
 
 const albumCollection = defineCollection({
   type: "data",
-  schema: z.object({
-    name: z.string(),
-    description: z.string(),
-    slug: z.string(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      description: z.string(),
+      cover: image(),
+    }),
 });
 
 export const collections = {

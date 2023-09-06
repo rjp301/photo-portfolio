@@ -19,5 +19,3 @@ When seeking for some wall art for our new apartment I opted to create a triptyc
 ![black sand beach aerial](./triptychs/iceland3.jpg)
 
 </div>
-
-![three images above couch](./triptychs/iceland-printed.jpg)
