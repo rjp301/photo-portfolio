@@ -9,14 +9,6 @@ const contactCollection = defineCollection({
   }),
 });
 
-const pageCollection = defineCollection({
-  type: "data",
-  schema: z.object({
-    name: z.string(),
-    link: z.string(),
-  }),
-});
-
 const blogCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
@@ -39,7 +31,6 @@ const albumCollection = defineCollection({
 
 export const collections = {
   contact: contactCollection,
-  headerLinks: pageCollection,
   blog: blogCollection,
   albums: albumCollection,
 };
