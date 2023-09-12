@@ -4,11 +4,13 @@ import { getCollection } from "astro:content";
 import { cn } from "@/lib/utils";
 
 const contacts = await getCollection("contact");
+const albums = await getCollection("albums");
 
 interface Link {
   name: string;
   link: string;
   active: (pathname: string) => boolean;
+  children?: Link[];
 }
 
 const links: Link[] = [
@@ -16,6 +18,12 @@ const links: Link[] = [
     name: "Portfolio",
     link: "/",
     active: (pathname) => pathname.startsWith("/portfolio") || pathname === "/",
+    children: albums.map((album) => ({
+      name: album.data.name,
+      link: `/portfolio/${album.data.slug}`,
+      active: (pathname) =>
+        pathname.startsWith(`/portfolio/${album.data.slug}`),
+    })),
   },
   {
     name: "Blog",
@@ -46,7 +54,7 @@ export default function Navbar({ pathname }: Props) {
   }, []);
 
   return (
-    <nav className="w-full bg-gray-50 shadow-lg top-0 z-50 px-4 md:px-8 sticky md:flex md:justify-between md:items-center">
+    <nav className="w-full bg-card shadow-lg top-0 z-50 px-4 md:px-8 sticky md:flex md:justify-between md:items-center">
       <div className="flex items-center z-40 justify-between">
         <a id="logo" href="/" className="flex items-center gap-2 py-4">
           <img className="h-12" src="/favicon.png" alt="logo" />
@@ -71,16 +79,33 @@ export default function Navbar({ pathname }: Props) {
         }`}
       >
         {links.map((link) => (
-          <li key={link.name}>
+          <li key={link.name} className="relative group">
             <a href={link.link}>
               <Button
                 variant="link"
                 size="lg"
-                className={cn("px-4", { underline: link.active(pathname) })}
+                className={cn("px-4 w-full", { underline: link.active(pathname) })}
               >
                 {link.name}
               </Button>
             </a>
+            {link.children && (
+              <div className="fixed hidden md:group-hover:flex bg-card shadow-lg flex-col">
+                {link.children.map((child) => (
+                  <a href={child.link}>
+                    <Button
+                      variant="link"
+                      size="lg"
+                      className={cn("px-4", {
+                        underline: child.active(pathname),
+                      })}
+                    >
+                      {child.name}
+                    </Button>
+                  </a>
+                ))}
+              </div>
+            )}
           </li>
         ))}
         <div id="social" className="flex gap-2">
