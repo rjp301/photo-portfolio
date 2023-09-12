@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import formatDate from "../../utils/formatDate";
+import Layout from "@/layouts/Layout.astro";
+import formatDate from "@/lib/formatDate";
 const blogs = await getCollection("blog");
 
 import {

@@ -1,9 +1,33 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { getCollection } from "astro:content";
+import { cn } from "@/lib/utils";
 
 const contacts = await getCollection("contact");
-const pages = await getCollection("headerLinks");
+
+interface Link {
+  name: string;
+  link: string;
+  active: (pathname: string) => boolean;
+}
+
+const links: Link[] = [
+  {
+    name: "Portfolio",
+    link: "/",
+    active: (pathname) => pathname.startsWith("/portfolio") || pathname === "/",
+  },
+  {
+    name: "Blog",
+    link: "/blog",
+    active: (pathname) => pathname.startsWith("/blog"),
+  },
+  {
+    name: "About",
+    link: "/about",
+    active: (pathname) => pathname.startsWith("/about"),
+  },
+];
 
 interface Props {
   pathname: string;
@@ -46,23 +70,19 @@ export default function Navbar({ pathname }: Props) {
           isOpen ? "flex" : "hidden"
         }`}
       >
-        {pages.map((page) => {
-          const isCurrent = pathname.startsWith(page.data.link);
-
-          return (
-            <li key={page.data.name}>
-              <a href={page.data.link}>
-                <Button
-                  variant="link"
-                  size="lg"
-                  className={`px-4 ${isCurrent ? "underline" : ""}`}
-                >
-                  {page.data.name}
-                </Button>
-              </a>
-            </li>
-          );
-        })}
+        {links.map((link) => (
+          <li key={link.name}>
+            <a href={link.link}>
+              <Button
+                variant="link"
+                size="lg"
+                className={cn("px-4", { underline: link.active(pathname) })}
+              >
+                {link.name}
+              </Button>
+            </a>
+          </li>
+        ))}
         <div id="social" className="flex gap-2">
           {contacts.map((c) => (
             <li key={c.data.link}>
