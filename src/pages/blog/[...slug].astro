@@ -1,6 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import formatDate from "@/lib/formatDate";
 import { getCollection } from "astro:content";
 
@@ -23,7 +23,7 @@ const { Content } = await entry.render();
     <Content />
   </div>
   <br />
-  <a href="/blog">
-    <Button variant="secondary" size="lg">Return to Blog</Button>
+  <a href="/blog" class={buttonVariants({ variant: "secondary" })}>
+    Return to Blog
   </a>
 </Layout>

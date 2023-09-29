@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { getCollection } from "astro:content";
 import { cn } from "@/lib/utils";
 
@@ -80,28 +80,28 @@ export default function Navbar({ pathname }: Props) {
       >
         {links.map((link) => (
           <li key={link.name} className="relative group">
-            <a href={link.link}>
-              <Button
-                variant="link"
-                size="lg"
-                className={cn("px-4 w-full", { underline: link.active(pathname) })}
-              >
-                {link.name}
-              </Button>
+            <a
+              href={link.link}
+              className={cn(
+                buttonVariants({ variant: "link", size: "lg" }),
+                { underline: link.active(pathname) },
+                "px-4"
+              )}
+            >
+              {link.name}
             </a>
             {link.children && (
-              <div className="fixed hidden md:group-hover:flex bg-card shadow-lg flex-col">
+              <div className="fixed hidden md:group-hover:flex bg-card shadow-lg flex-col py-2">
                 {link.children.map((child) => (
-                  <a href={child.link}>
-                    <Button
-                      variant="link"
-                      size="lg"
-                      className={cn("px-4", {
-                        underline: child.active(pathname),
-                      })}
-                    >
-                      {child.name}
-                    </Button>
+                  <a
+                    href={child.link}
+                    className={cn(
+                      buttonVariants({ variant: "link", size: "lg" }),
+                      "justify-start",
+                      child.active(pathname) && "underline"
+                    )}
+                  >
+                    {child.name}
                   </a>
                 ))}
               </div>
@@ -111,10 +111,15 @@ export default function Navbar({ pathname }: Props) {
         <div id="social" className="flex gap-2">
           {contacts.map((c) => (
             <li key={c.data.link}>
-              <a href={c.data.link} target="_blank" rel="noopener noreferrer">
-                <Button variant="link" size="icon" className="px-4">
-                  <i className={`${c.data.icon} font-normal`} />
-                </Button>
+              <a
+                href={c.data.link}
+                target="_blank"
+                className={cn(
+                  buttonVariants({ variant: "link", size: "icon" }),
+                )}
+                rel="noopener noreferrer"
+              >
+                <i className={`${c.data.icon} font-normal`} />
               </a>
             </li>
           ))}

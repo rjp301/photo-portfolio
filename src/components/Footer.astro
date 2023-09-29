@@ -1,8 +1,9 @@
 ---
-import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "./ui/button";
 import { getCollection } from "astro:content";
 
-const contacts = await getCollection("contact")
+const contacts = await getCollection("contact");
 ---
 
 <div
@@ -12,10 +13,16 @@ const contacts = await getCollection("contact")
   <div>
     {
       contacts.map((i) => (
-        <a href={i.data.link} target="_blank" rel="noopener noreferrer">
-          <Button variant="link" size="sm" className="px-2 text-muted-foreground">
-            {i.data.name}
-          </Button>
+        <a
+          href={i.data.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={cn(
+            buttonVariants({ variant: "link", size: "sm" }),
+            "px-2 text-muted-foreground"
+          )}
+        >
+          {i.data.name}
         </a>
       ))
     }
