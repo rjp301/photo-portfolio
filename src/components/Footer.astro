@@ -2,8 +2,7 @@
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
 import { getCollection } from "astro:content";
-
-const contacts = await getCollection("contact");
+import { contacts } from "@/config/contact";
 ---
 
 <div
@@ -14,7 +13,7 @@ const contacts = await getCollection("contact");
     {
       contacts.map((i) => (
         <a
-          href={i.data.link}
+          href={i.link}
           target="_blank"
           rel="noopener noreferrer"
           class={cn(
@@ -22,7 +21,7 @@ const contacts = await getCollection("contact");
             "px-2 text-muted-foreground"
           )}
         >
-          {i.data.name}
+          {i.name}
         </a>
       ))
     }

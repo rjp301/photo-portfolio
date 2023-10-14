@@ -3,8 +3,10 @@ import { Button, buttonVariants } from "./ui/button";
 import { getCollection } from "astro:content";
 import { cn } from "@/lib/utils";
 
-const contacts = await getCollection("contact");
 const albums = await getCollection("albums");
+
+import { contacts } from "@/config/contact";
+import { Menu, X } from "lucide-react";
 
 interface Link {
   name: string;
@@ -41,7 +43,7 @@ interface Props {
   pathname: string;
 }
 
-export default function Navbar({ pathname }: Props) {
+export default function Navbar({ pathname = "" }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const collapse = (event: KeyboardEvent) => {
@@ -54,10 +56,12 @@ export default function Navbar({ pathname }: Props) {
   }, []);
 
   return (
-    <nav className="w-full bg-card shadow-lg top-0 z-50 px-4 md:px-8 sticky md:flex md:justify-between md:items-center">
-      <div className="flex items-center z-40 justify-between">
-        <a id="logo" href="/" className="flex items-center gap-2 py-4">
-          <img className="h-12" src="/favicon.png" alt="logo" />
+    <nav className="w-full bg-card shadow-lg z-50 px-4 md:px-8 flex justify-between md:items-center flex-col md:flex-row">
+      <div className="flex items-center z-40 justify-between w-full">
+        <a id="logo" href="/" className="flex items-center gap-2">
+          <div className="w-10 h-16 flex items-center">
+            <img className="h-auto w-auto" src="/favicon.png" alt="logo" />
+          </div>
           Riley Paul
         </a>
         <Button
@@ -66,39 +70,37 @@ export default function Navbar({ pathname }: Props) {
           size="icon"
           onClick={() => setIsOpen((prev) => !prev)}
         >
-          <i
-            className={`fa-solid text-lg px-4 ${isOpen ? "fa-x" : "fa-bars"}`}
-          />
+          {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
         </Button>
       </div>
 
       <ul
         id="header-links"
-        className={`flex-col py-4 md:flex md:flex-row items-center text-gray-600 ${
-          isOpen ? "flex" : "hidden"
-        }`}
+        className={cn(
+          "flex flex-col md:flex-row items-start md:first-line:items-center text-muted-foreground text-sm gap-2 h-full pb-4 md:pb-0",
+          isOpen ? "flex" : "hidden md:flex"
+        )}
       >
         {links.map((link) => (
-          <li key={link.name} className="relative group">
-            <a
-              href={link.link}
-              className={cn(
-                buttonVariants({ variant: "link", size: "lg" }),
-                { underline: link.active(pathname) },
-                "px-4"
-              )}
-            >
+          <li
+            key={link.name}
+            className={cn(
+              "relative group h-full px-2 flex items-center border-l-2 md:border-l-0 md:border-b-2 border-transparent hover:border-muted-foreground",
+              link.active(pathname) && "border-primary text-primary"
+            )}
+          >
+            <a href={link.link} className="">
               {link.name}
             </a>
             {link.children && (
-              <div className="fixed hidden md:group-hover:flex bg-card shadow-lg flex-col py-2">
+              <div className="fixed hidden gap-1 top-16 md:group-hover:flex bg-card shadow-lg flex-col py-2 text-muted-foreground">
                 {link.children.map((child) => (
                   <a
+                    key={child.name}
                     href={child.link}
                     className={cn(
-                      buttonVariants({ variant: "link", size: "lg" }),
-                      "justify-start",
-                      child.active(pathname) && "underline"
+                      "p-2 border-l-2 border-transparent hover:border-muted-foreground",
+                      child.active(pathname) && "text-foreground border-primary"
                     )}
                   >
                     {child.name}
@@ -108,18 +110,14 @@ export default function Navbar({ pathname }: Props) {
             )}
           </li>
         ))}
-        <div id="social" className="flex gap-2">
+        <div id="social" className="flex gap-4 h-full">
           {contacts.map((c) => (
-            <li key={c.data.link}>
-              <a
-                href={c.data.link}
-                target="_blank"
-                className={cn(
-                  buttonVariants({ variant: "link", size: "icon" }),
-                )}
-                rel="noopener noreferrer"
-              >
-                <i className={`${c.data.icon} font-normal`} />
+            <li
+              key={c.link}
+              className="border-b-2 border-transparent h-full flex items-center hover:border-muted-foreground"
+            >
+              <a href={c.link} target="_blank" rel="noopener noreferrer">
+                <c.icon className="h-4 w-4" />
               </a>
             </li>
           ))}

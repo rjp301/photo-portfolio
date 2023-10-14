@@ -10,7 +10,7 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.astro";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -34,9 +34,11 @@ import Footer from "../components/Footer.astro";
     <meta name="generator" content={Astro.generator} />
     <title>{"Riley Paul" + (title ? ` - ${title}` : "")}</title>
   </head>
-  <body class="h-screen flex flex-col overflow-hidden">
+  <body
+    class="h-screen flex flex-col overflow-hidden bg-[url('/stardust.png')]"
+  >
     <Navbar client:load pathname={Astro.url.pathname} />
-    <main class="flex flex-1 items-center flex-col p-4 overflow-auto">
+    <main class="flex flex-1 items-center flex-col p-4 h-full overflow-auto">
       <slot />
       <Footer />
     </main>
