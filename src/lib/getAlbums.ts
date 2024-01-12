@@ -1,6 +1,11 @@
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
-export default async function getAlbums() {
+export type Album = CollectionEntry<"albums"> & {
+  photos: string[];
+  cover: string;
+};
+
+export default async function getAlbums(): Promise<Album[]> {
   const albumData = await getCollection("albums");
   const allPhotos = Object.keys(
     import.meta.glob(`/public/albums/**/*.{jpg,jpeg,png}`)

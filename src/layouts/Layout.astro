@@ -34,11 +34,9 @@ import Footer from "../components/Footer.astro";
     <meta name="generator" content={Astro.generator} />
     <title>{"Riley Paul" + (title ? ` - ${title}` : "")}</title>
   </head>
-  <body
-    class="h-screen flex flex-col overflow-hidden bg-[url('/stardust.png')]"
-  >
+  <body class="">
     <Navbar client:load pathname={Astro.url.pathname} />
-    <main class="flex flex-1 items-center flex-col p-4 h-full overflow-auto">
+    <main class="py-4 container">
       <slot />
       <Footer />
     </main>

@@ -1,8 +1,8 @@
-import { MouseEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
 export type Props = {
-  images: [];
+  images: string[];
   name: string;
 };
 
@@ -60,9 +60,9 @@ export default function Gallery(props: Props) {
 
   return (
     <>
-      <div id="gallery" className="flex flex-col gap-4">
+      <div id="gallery" className="columns-md">
         {images.map((image, i) => (
-          <button key={i} onClick={() => openImage(i)}>
+          <button key={i} onClick={() => openImage(i)} className="mb-4">
             <img className="" src={image} alt={name} />
           </button>
         ))}

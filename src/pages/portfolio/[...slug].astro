@@ -15,11 +15,11 @@ export async function getStaticPaths() {
 const { album } = Astro.props;
 ---
 
-<Layout title={album.name}>
-  <div class="max-w-xl flex flex-col items-center">
-    <h2 class="text-lg font-bold w-full pb-4">{album.name}</h2>
-    <Gallery images={album.photos} name={album.name} client:load />
-    <br />
+<Layout title={album.data.name}>
+  <h2 class="text-lg font-bold w-full pb-4">{album.data.name}</h2>
+  <Gallery images={album.photos} name={album.data.name} client:load />
+  <br />
+  <div class="mt-8 w-full flex justify-center">
     <a href="/" class={buttonVariants({ variant: "secondary" })}>
       Return to Portfolio
     </a>
