@@ -23,14 +23,14 @@ export const NavMenu: React.FC<Props> = (props) => {
 
   return (
     <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className="flex-col items-start md:flex-row">
         {links.map((link) => (
           <NavigationMenuItem>
             {link.children ? (
               <>
                 <NavigationMenuTrigger>{link.name}</NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-background">
-                  <ul className="grid w-[250px] gap-2 p-4">
+                  <ul className="grid w-[300px] gap-2 p-4">
                     {link.children.map((child) => (
                       <li>
                         <a href={child.link}>

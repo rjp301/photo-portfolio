@@ -1,9 +1,10 @@
 import { getCollection } from "astro:content";
+import { contacts } from "./contact";
 
 export interface Link {
   name: string;
   link: string;
-  active: (pathname: string) => boolean;
+  active?: (pathname: string) => boolean;
   children?: Link[];
 }
 
@@ -30,6 +31,14 @@ export const links: Link[] = [
       name: blog.data.title,
       link: `/blog/${blog.slug}`,
       active: (pathname) => pathname.startsWith(`/blog/${blog.slug}`),
+    })),
+  },
+  {
+    name: "Contact",
+    link: "/contact",
+    children: contacts.map((contact) => ({
+      name: contact.name,
+      link: contact.link,
     })),
   },
   {

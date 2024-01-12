@@ -3,6 +3,7 @@ import { Button, buttonVariants } from "./ui/button";
 
 import { Menu, X } from "lucide-react";
 import { NavMenu } from "./NavMenu";
+import { cn } from "@/lib/utils";
 
 interface Props {
   pathname: string;
@@ -21,7 +22,12 @@ export default function Navbar({ pathname = "" }: Props) {
   }, []);
 
   return (
-    <header className="w-full shadow-lg z-50 sticky top-0 bg-background">
+    <header
+      className={cn(
+        "w-full shadow-lg z-50 sticky top-0 bg-background",
+        isOpen && "pb-4"
+      )}
+    >
       <div className="container flex justify-between md:items-center flex-col md:flex-row">
         <div className="flex items-center z-40 justify-between">
           <a id="logo" href="/" className="flex items-center gap-2">
@@ -40,7 +46,9 @@ export default function Navbar({ pathname = "" }: Props) {
           </Button>
         </div>
 
-        <NavMenu />
+        <div className={cn("hidden md:block", isOpen && "block")}>
+          <NavMenu />
+        </div>
       </div>
     </header>
   );
