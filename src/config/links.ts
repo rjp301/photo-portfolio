@@ -4,7 +4,7 @@ import { contacts } from "./contact";
 export interface Link {
   name: string;
   link: string;
-  active?: (pathname: string) => boolean;
+  active: (pathname: string) => boolean;
   children?: Link[];
 }
 
@@ -36,9 +36,11 @@ export const links: Link[] = [
   {
     name: "Contact",
     link: "/contact",
+    active: () => false,
     children: contacts.map((contact) => ({
       name: contact.name,
       link: contact.link,
+      active: () => false,
     })),
   },
   {

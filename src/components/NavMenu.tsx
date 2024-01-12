@@ -15,7 +15,7 @@ import {
 import { cn } from "@/lib/utils";
 
 interface Props {
-  pathname?: string;
+  pathname: string;
 }
 
 export const NavMenu: React.FC<Props> = (props) => {
@@ -28,7 +28,11 @@ export const NavMenu: React.FC<Props> = (props) => {
           <NavigationMenuItem>
             {link.children ? (
               <>
-                <NavigationMenuTrigger>{link.name}</NavigationMenuTrigger>
+                <NavigationMenuTrigger
+                  className={cn(link.active(pathname) && "bg-secondary")}
+                >
+                  {link.name}
+                </NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-background">
                   <ul className="grid w-[300px] gap-2 p-4">
                     {link.children.map((child) => (
@@ -37,7 +41,8 @@ export const NavMenu: React.FC<Props> = (props) => {
                           <NavigationMenuLink
                             className={cn(
                               navigationMenuTriggerStyle(),
-                              "w-full justify-start h-auto"
+                              "w-full justify-start h-auto",
+                              child.active(pathname) && "bg-secondary"
                             )}
                           >
                             {child.name}
@@ -50,7 +55,12 @@ export const NavMenu: React.FC<Props> = (props) => {
               </>
             ) : (
               <a href={link.link}>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    link.active(pathname) && "bg-secondary"
+                  )}
+                >
                   {link.name}
                 </NavigationMenuLink>
               </a>

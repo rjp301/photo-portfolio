@@ -47,7 +47,7 @@ export default function Navbar({ pathname = "" }: Props) {
         </div>
 
         <div className={cn("hidden md:block", isOpen && "block")}>
-          <NavMenu />
+          <NavMenu pathname={pathname} />
         </div>
       </div>
     </header>
