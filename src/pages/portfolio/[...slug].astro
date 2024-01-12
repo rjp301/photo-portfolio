@@ -19,9 +19,11 @@ const { album } = Astro.props;
   <h2 class="text-lg font-bold w-full pb-4">{album.data.name}</h2>
   <Gallery images={album.photos} name={album.data.name} client:load />
   <br />
-  <div class="mt-8 w-full flex justify-center">
-    <a href="/" class={buttonVariants({ variant: "secondary" })}>
-      Return to Portfolio
-    </a>
-  </div>
+  <a
+    href="/"
+    slot="footer-button"
+    class={buttonVariants({ variant: "secondary" })}
+  >
+    Return to Portfolio
+  </a>
 </Layout>

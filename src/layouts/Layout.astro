@@ -38,7 +38,10 @@ import Footer from "../components/Footer.astro";
     <Navbar client:load pathname={Astro.url.pathname} />
     <main class="py-4 container">
       <slot />
-      <Footer />
+
+      <Footer>
+        <slot name="footer-button" />
+      </Footer>
     </main>
   </body>
 </html>

@@ -17,13 +17,17 @@ const { Content } = await entry.render();
 ---
 
 <Layout title={entry.data.title}>
-  <div class="prose">
+  <div class="prose mx-auto">
     <h1 class="mb-0">{entry.data.title}</h1>
     <span>{formatDate(entry.data.date)}</span>
     <Content />
   </div>
   <br />
-  <a href="/blog" class={buttonVariants({ variant: "secondary" })}>
+  <a
+    slot="footer-button"
+    href="/blog"
+    class={buttonVariants({ variant: "secondary" })}
+  >
     Return to Blog
   </a>
 </Layout>

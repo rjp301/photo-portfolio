@@ -1,32 +1,35 @@
 ---
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
-import { getCollection } from "astro:content";
 import { contacts } from "@/config/contact";
 ---
 
 <div
-  class="w-full flex flex-col gap-2 flex-wrap items-center justify-center py-8 pt-28 mt-auto"
+  class="w-full flex flex-col gap-8 flex-wrap items-center justify-center pb-8 pt-28 mt-auto"
   id="contact"
 >
-  <div>
-    {
-      contacts.map((i) => (
-        <a
-          href={i.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          class={cn(
-            buttonVariants({ variant: "link", size: "sm" }),
-            "px-2 text-muted-foreground"
-          )}
-        >
-          {i.name}
-        </a>
-      ))
-    }
-  </div>
-  <div class="text-muted-foreground text-xs font-thin">
-    &copy; {new Date().getFullYear()} Riley Paul
+  <slot />
+
+  <div class="flex flex-col gap-2 items-center">
+    <div>
+      {
+        contacts.map((i) => (
+          <a
+            href={i.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={cn(
+              buttonVariants({ variant: "link", size: "sm" }),
+              "px-2 text-muted-foreground"
+            )}
+          >
+            {i.name}
+          </a>
+        ))
+      }
+    </div>
+    <div class="text-muted-foreground text-xs font-thin">
+      &copy; {new Date().getFullYear()} Riley Paul
+    </div>
   </div>
 </div>
