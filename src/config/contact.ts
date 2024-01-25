@@ -13,13 +13,13 @@ export const contacts: Contact[] = [
     icon: AtSign,
   },
   {
-    name: "Facebook",
-    link: "https://www.facebook.com/rileypaulphoto",
-    icon: Facebook,
-  },
-  {
     name: "Instagram",
     link: "https://www.instagram.com/riley_was_there",
     icon: Instagram,
+  },
+  {
+    name: "Facebook",
+    link: "https://www.facebook.com/rileypaulphoto",
+    icon: Facebook,
   },
 ];

@@ -25,7 +25,7 @@ export default function Navbar({ pathname = "" }: Props) {
     <header
       className={cn(
         "w-full shadow-lg z-50 sticky top-0 bg-background",
-        isOpen && "pb-4"
+        isOpen && "pb-4 md:pb-0"
       )}
     >
       <div className="container flex justify-between md:items-center flex-col md:flex-row">

@@ -23,14 +23,17 @@ export const NavMenu: React.FC<Props> = (props) => {
 
   return (
     <NavigationMenu>
-      <NavigationMenuList className="flex-col items-start md:flex-row">
+      <NavigationMenuList className="flex-wrap justify-normal">
         {links.map((link) => (
           <NavigationMenuItem>
             {link.children ? (
               <>
                 <NavigationMenuTrigger
-                  className={cn(link.active(pathname) && "bg-secondary")}
+                  className={cn(link.active(pathname) && "font-bold")}
                 >
+                  {link.icon && (
+                    <link.icon className="w-4 h-4 mr-3 text-secondary-foreground" />
+                  )}
                   {link.name}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-background">
@@ -42,9 +45,12 @@ export const NavMenu: React.FC<Props> = (props) => {
                             className={cn(
                               navigationMenuTriggerStyle(),
                               "w-full justify-start h-auto",
-                              child.active(pathname) && "bg-secondary"
+                              child.active(pathname) && "font-bold"
                             )}
                           >
+                            {child.icon && (
+                              <child.icon className="w-4 h-4 mr-3 text-secondary-foreground" />
+                            )}
                             {child.name}
                           </NavigationMenuLink>
                         </a>
@@ -58,9 +64,12 @@ export const NavMenu: React.FC<Props> = (props) => {
                 <NavigationMenuLink
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    link.active(pathname) && "bg-secondary"
+                    link.active(pathname) && "font-bold"
                   )}
                 >
+                  {link.icon && (
+                    <link.icon className="w-4 h-4 mr-3 text-secondary-foreground" />
+                  )}
                   {link.name}
                 </NavigationMenuLink>
               </a>

@@ -1,10 +1,12 @@
 import { getCollection } from "astro:content";
 import { contacts } from "./contact";
+import type { LucideIcon } from "lucide-react";
 
 export interface Link {
   name: string;
   link: string;
   active: (pathname: string) => boolean;
+  icon?: LucideIcon;
   children?: Link[];
 }
 
@@ -38,8 +40,7 @@ export const links: Link[] = [
     link: "/contact",
     active: () => false,
     children: contacts.map((contact) => ({
-      name: contact.name,
-      link: contact.link,
+      ...contact,
       active: () => false,
     })),
   },

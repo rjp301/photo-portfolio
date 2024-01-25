@@ -17,7 +17,7 @@ const { Content } = await entry.render();
 ---
 
 <Layout title={entry.data.title}>
-  <div class="prose mx-auto">
+  <div class="prose mx-auto max-w-none">
     <h1 class="mb-0">{entry.data.title}</h1>
     <span>{formatDate(entry.data.date)}</span>
     <Content />
