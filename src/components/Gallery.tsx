@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 export type Props = {
   images: string[];
@@ -63,7 +64,7 @@ export default function Gallery(props: Props) {
       <div id="gallery" className="columns-md">
         {images.map((image, i) => (
           <button key={i} onClick={() => openImage(i)} className="mb-4">
-            <img className="" src={image} alt={name} />
+            <img className="rounded" src={image} alt={name} />
           </button>
         ))}
       </div>
@@ -91,7 +92,7 @@ export default function Gallery(props: Props) {
               stopPrevent(e);
             }}
           >
-            <i className="fa-solid fa-chevron-right text-lg hidden sm:block" />
+            <ChevronRight size="1.5rem" className="hidden sm:block" />
           </Button>
 
           <Button
@@ -102,7 +103,7 @@ export default function Gallery(props: Props) {
               moveLeft();
             }}
           >
-            <i className="fa-solid fa-chevron-left text-lg hidden sm:block" />
+            <ChevronLeft size="1.5rem" className="hidden sm:block" />
           </Button>
 
           <Button
@@ -114,7 +115,7 @@ export default function Gallery(props: Props) {
             size="icon"
             className="text-muted hover:bg-muted/30 hover:text-background fixed top-0 right-0 mt-4 mr-4"
           >
-            <i className="fa-solid fa-x text-lg" />
+            <X size="1.2rem" />
           </Button>
         </div>
       )}

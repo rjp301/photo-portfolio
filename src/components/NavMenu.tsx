@@ -29,7 +29,10 @@ export const NavMenu: React.FC<Props> = (props) => {
             {link.children ? (
               <>
                 <NavigationMenuTrigger
-                  className={cn(link.active(pathname) && "font-bold")}
+                  className={cn(
+                    link.active(pathname) && "font-bold text-primary",
+                    "hover:text-primary"
+                  )}
                 >
                   {link.icon && (
                     <link.icon className="w-4 h-4 mr-3 text-secondary-foreground" />
@@ -37,7 +40,7 @@ export const NavMenu: React.FC<Props> = (props) => {
                   {link.name}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-background">
-                  <ul className="grid w-[300px] gap-2 p-4">
+                  <ul className="grid w-[300px] gap-1 p-2">
                     {link.children.map((child) => (
                       <li>
                         <a href={child.link}>
@@ -45,7 +48,7 @@ export const NavMenu: React.FC<Props> = (props) => {
                             className={cn(
                               navigationMenuTriggerStyle(),
                               "w-full justify-start h-auto",
-                              child.active(pathname) && "font-bold"
+                              child.active(pathname) && "font-bold text-primary"
                             )}
                           >
                             {child.icon && (
@@ -64,7 +67,8 @@ export const NavMenu: React.FC<Props> = (props) => {
                 <NavigationMenuLink
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    link.active(pathname) && "font-bold"
+                    link.active(pathname) && "font-bold text-primary",
+                    "hover:text-primary",
                   )}
                 >
                   {link.icon && (

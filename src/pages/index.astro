@@ -10,8 +10,12 @@ const albums = await getAlbums();
       albums.map((album) => (
         <figure class="shadow-lg relative inline-block mb-3">
           <a href={`/portfolio/${album.data.slug}`}>
-            <img class="block h-auto" src={album.cover} alt={album.data.name} />
-            <div class="flex flex-col items-center justify-center font-thin absolute bottom-0 md:top-0 w-full py-4 bg-muted-foreground/50 text-background hover:opacity-100 md:opacity-0 transition-opacity">
+            <img
+              class="block h-auto rounded"
+              src={album.cover}
+              alt={album.data.name}
+            />
+            <div class="flex flex-col items-center justify-center font-thin absolute bottom-0 md:top-0 w-full py-4 bg-muted-foreground/50 text-background hover:opacity-100 md:opacity-0 transition-opacity rounded">
               <h2 class="">{album.data.name}</h2>
               <h3 class="italic text-sm">— view —</h3>
             </div>
